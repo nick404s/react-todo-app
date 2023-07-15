@@ -14,7 +14,7 @@ export default function NavBar() {
       <AppBar position="static" sx={{ bgcolor: blueGrey[700] }}>
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            Todos
+            Todo List
           </Typography>
         </Toolbar>
       </AppBar>

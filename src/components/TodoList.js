@@ -1,6 +1,6 @@
 import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
-import { List, Box, Typography } from '@mui/material';
+import { List, Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 
 
@@ -82,9 +82,6 @@ export default function TodoList()
                 m: 2, 
             }}
     >
-        <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-            Todo List
-        </Typography>
         <List sx={{ width: '100%', maxWidth: 700 }}>
             {todos.map((todo) => {
                 return <TodoItem
