@@ -6,32 +6,25 @@ import {
 } from '@mui/material';
 
 import AddIcon from '@mui/icons-material/Add';
-import { useState } from 'react';
+import { useRef } from 'react';
 
 
 export default function TodoForm({ createItem }) {
 
-    const [text, setText] = useState('');
-
-    const handleOnChange = (evt) => {
-
-        const value = evt.target.value;
-
-        if (value) {
-            setText(value);
-        }  
-    };
+    const inputTextRef = useRef();
 
     const handleOnSubmit = (evt) => {
 
         evt.preventDefault();
+        // get the input text from the input ref
+        const inputText = inputTextRef.current.value;
 
-        if (text) {
+        if (inputText.trim().length) {
             // add a new item to the list
-            createItem(text);
+            createItem(inputText);
         }
         // clear the input
-        setText('');
+        inputTextRef.current.value = '';
     };
 
 
@@ -43,8 +36,7 @@ export default function TodoForm({ createItem }) {
                     id="outlined-basic" 
                     label="Add Todo"
                     variant="outlined"
-                    value={text}
-                    onChange={handleOnChange}
+                    inputRef={inputTextRef}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">
